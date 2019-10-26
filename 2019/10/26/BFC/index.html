@@ -4,9 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="CSS选择器浅析, colosBlog">
-    <meta name="description" content="在CSS中，选择器是一种模式，用于选择需要添加样式的元素。在实际开发过程中，合理运用选择器会让开发更快捷，代码更简洁，甚至可以结合HTML去实现一些逆向选择的技巧。本文对CSS选择器中一些常用例子做了简要说明，并对一些理论做了解析
-选择器分">
+    <meta name="keywords" content="BFC, colosBlog">
+    <meta name="description" content="BFC | colosBlog">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>CSS选择器浅析 | colosBlog</title>
+    <title>BFC | colosBlog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -242,13 +241,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        CSS选择器浅析
+                        BFC
                     </div>
                 </div>
             </div>
@@ -358,25 +357,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/%E9%80%89%E6%8B%A9%E5%99%A8-%E6%9D%83%E9%87%8D/">
-                                <span class="chip bg-color">选择器 权重</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/CSS/" class="post-category">
-                                CSS
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -402,46 +388,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>在CSS中，选择器是一种模式，用于选择需要添加样式的元素。在实际开发过程中，合理运用选择器会让开发更快捷，代码更简洁，甚至可以结合HTML去实现一些逆向选择的技巧。本文对CSS选择器中一些常用例子做了简要说明，并对一些理论做了解析</p>
-<h2 id="选择器分类"><a href="#选择器分类" class="headerlink" title="选择器分类"></a>选择器分类</h2><h3 id="后代选择器"><a href="#后代选择器" class="headerlink" title="后代选择器"></a>后代选择器</h3><p><code>.link li {}</code><br>选择link类元素的后代元素中所有li标签</p>
-<h3 id="子选择器"><a href="#子选择器" class="headerlink" title="子选择器"></a>子选择器</h3><p><code>div &gt; p {}</code><br>选择div标签的所有p子元素，如果p元素为子元素的后代则无效</p>
-<h3 id="兄弟选择器"><a href="#兄弟选择器" class="headerlink" title="兄弟选择器"></a>兄弟选择器</h3><p><code>.bro1 + .bro2 {}</code><br>选择bro1类元素相邻且拥有相同父元素的bro2元素，注意css文档里bro2类必须在bro1类的后面</p>
-<h3 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h3><p><code>a[tittle]{}</code><br>表示对有tittle属性的连接进行设置</p>
-<h3 id="伪类与伪元素"><a href="#伪类与伪元素" class="headerlink" title="伪类与伪元素"></a>伪类与伪元素</h3><h4 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h4><ul>
-<li><p><code>:hover , :visited , :active , :focus</code><br>分别表示鼠标停留时，已访问之后，鼠标点击时，获得焦点时</p>
-</li>
-<li><p><code>p:first-child , p:last-child</code><br>分别表示任何一个元素的第一个p子元素和最后一个p子元素</p>
-</li>
-<li><p><code>p:nth-child(2)</code><br>表示任何一个元素的第二个子元素p，如果第二个子元素不是p，则无效</p>
-</li>
-<li><p><code>p:nth-of-type(2)</code><br>表示任何一个元素的第二个p子元素,无论p是否为第二个子元素都生效</p>
-</li>
-</ul>
-<h4 id="伪元素"><a href="#伪元素" class="headerlink" title="伪元素"></a>伪元素</h4><p><code>::before , ::after</code><br>分别表示在元素前面和后面插入内容</p>
-<hr>
-<h2 id="选择器权重"><a href="#选择器权重" class="headerlink" title="选择器权重"></a>选择器权重</h2><h3 id="使用选择器遵守的原则"><a href="#使用选择器遵守的原则" class="headerlink" title="使用选择器遵守的原则"></a>使用选择器遵守的原则</h3><ol>
-<li>!important 优先级最高，但也会被权重高的important所覆盖</li>
-<li>内联样式总会覆盖外部样式表的任何样式</li>
-<li>如果两个权重不同的选择器作用在同一元素上，权重值高的覆盖权重低的</li>
-<li>如果两个相同权重的选择器作用在同一元素上，在文档后面的覆盖前面的</li>
-</ol>
-<h3 id="选择器权重值"><a href="#选择器权重值" class="headerlink" title="选择器权重值"></a>选择器权重值</h3><ol>
-<li>内联样式： 1000</li>
-<li>ID选择器： 100</li>
-<li>类、伪类、属性选择器： 10</li>
-<li>元素、伪元素： 1</li>
-</ol>
-<h3 id="选择器使用建议"><a href="#选择器使用建议" class="headerlink" title="选择器使用建议"></a>选择器使用建议</h3><ol>
-<li>不要使用 !important</li>
-<li>少用id选择器，只在必要时使用id增加权重</li>
-<li>避免层层嵌套使用选择器</li>
-</ol>
-<hr>
-<h2 id="关于父选择器"><a href="#关于父选择器" class="headerlink" title="关于父选择器"></a>关于父选择器</h2><blockquote>
-<p>CSS之所以不支持父选择器，是因为在加载css树时，如果支持父选择器，就会导致所有子元素加载完才能渲染父元素，而渲染是自上而下的，这样会严重影响渲染速度，这也是兄弟选择器不支持向上选择的原因</p>
-</blockquote>
-<p>如何通过css实现父选择器呢？<br>可以参考张鑫旭的<a href="https://www.zhangxinxu.com/wordpress/2016/08/css-parent-selector/" target="_blank" rel="noopener">如何在CSS中实现父选择器效果?</a></p>
-
+                
             </div>
             <hr/>
 
@@ -466,7 +413,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://colorsweb.github.io/2019/10/26/CSS%E9%80%89%E6%8B%A9%E5%99%A8%E6%B5%85%E6%9E%90/">https://colorsweb.github.io/2019/10/26/CSS%E9%80%89%E6%8B%A9%E5%99%A8%E6%B5%85%E6%9E%90/</a>
+                    <a href="https://colorsweb.github.io/2019/10/26/BFC/">https://colorsweb.github.io/2019/10/26/BFC/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -503,11 +450,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/%E9%80%89%E6%8B%A9%E5%99%A8-%E6%9D%83%E9%87%8D/">
-                                    <span class="chip bg-color">选择器 权重</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -672,9 +615,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2019/10/26/BFC/">
                     <div class="card-image">
@@ -692,9 +636,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-10-26
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-10-26
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -703,6 +647,7 @@
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -710,7 +655,7 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
                 <a href="/2019/10/26/CSS%E9%80%89%E6%8B%A9%E5%99%A8%E6%B5%85%E6%9E%90/">
@@ -745,7 +690,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
