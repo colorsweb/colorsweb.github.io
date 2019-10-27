@@ -248,7 +248,7 @@ mark {
 }
 
 .bg-color {
-    background-image: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
+    background-image: linear-gradient(to right, #0D9DF3 0%, #3049E2 100%);
 }
 
 .text-color {
@@ -286,11 +286,11 @@ nav {
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 7px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
-header .nav-transparent {
+/*header .nav-transparent {
     background-color: transparent !important;
     background-image: none;
     box-shadow: none;
-}
+}*/
 
 header nav .brand-span {
     font-size: 1.45rem;

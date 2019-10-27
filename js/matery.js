@@ -132,16 +132,18 @@ $(function () {
     $(window).scroll(function () {
         /* 回到顶部按钮根据滚动条的位置的显示和隐藏.*/
         let scroll = $(window).scrollTop();
+        $nav[0].style.opacity = scroll / 275;
         showOrHideNavBg(scroll);
     });
 
     function showOrHideNavBg(position) {
+        $nav[0].style.opacity = position / 275
         let showPosition = 100;
         if (position < showPosition) {
-            $nav.addClass('nav-transparent');
+            // $nav.addClass('nav-transparent');
             $backTop.slideUp(300);
         } else {
-            $nav.removeClass('nav-transparent');
+            // $nav.removeClass('nav-transparent');
             $backTop.slideDown(300);
         }
     }
