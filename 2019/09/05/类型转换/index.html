@@ -4,11 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="层叠上下文, KalebBlog">
-    <meta name="description" content="层叠上下文是HTML元素的三维概念，这些HTML元素在一条假想的相对于面向（电脑屏幕的）视窗或者网页的用户的z轴上延伸，HTML元素依据其自身属性按照优先级顺序占用层叠上下文的空间。
-层叠顺序
+    <meta name="keywords" content="类型转换, KalebBlog">
+    <meta name="description" content="基本包装类型在读取基本类型的值和方法的时候，会在执行的瞬间创造一个基本包装类型，类似引用类型，但和引用类型不同的是，基本包装类型会在使用后立即销毁
+运算符优先级详细可见 运算符优先级
 
-z-index只对定位元素(position">
+由于优先级不好记，搞不清楚的情况下可以使用圆括号()，">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@ z-index只对定位元素(position">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>层叠上下文 | KalebBlog</title>
+    <title>类型转换 | KalebBlog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -240,13 +240,13 @@ z-index只对定位元素(position">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        层叠上下文
+                        类型转换
                     </div>
                 </div>
             </div>
@@ -358,12 +358,12 @@ z-index只对定位元素(position">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%B1%82%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87/">
-                                <span class="chip bg-color">层叠上下文</span>
+                            <a href="/tags/%E7%B1%BB%E5%9E%8B/">
+                                <span class="chip bg-color">类型</span>
                             </a>
                         
-                            <a href="/tags/z-index/">
-                                <span class="chip bg-color">z-index</span>
+                            <a href="/tags/Symbol-toPrimitive/">
+                                <span class="chip bg-color">Symbol.toPrimitive</span>
                             </a>
                         
                     </div>
@@ -374,8 +374,8 @@ z-index只对定位元素(position">
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/CSS/" class="post-category">
-                                CSS
+                            <a href="/categories/Javascript/" class="post-category">
+                                Javascript
                             </a>
                         
                     </div>
@@ -386,7 +386,7 @@ z-index只对定位元素(position">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-09-01
+                    2019-09-05
                 </div>
                 
                 
@@ -409,47 +409,55 @@ z-index只对定位元素(position">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>层叠上下文是HTML元素的三维概念，这些HTML元素在一条假想的相对于面向（电脑屏幕的）视窗或者网页的用户的z轴上延伸，HTML元素依据其自身属性按照优先级顺序占用层叠上下文的空间。</p>
-<h3 id="层叠顺序"><a href="#层叠顺序" class="headerlink" title="层叠顺序"></a>层叠顺序</h3><p><img src="/medias/%E5%B1%82%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87/1.png" alt=""></p>
+                <h3 id="基本包装类型"><a href="#基本包装类型" class="headerlink" title="基本包装类型"></a>基本包装类型</h3><p>在读取基本类型的值和方法的时候，会在执行的瞬间创造一个基本包装类型，类似引用类型，但和引用类型不同的是，基本包装类型会在使用后立即销毁</p>
+<h3 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h3><p>详细可见 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Operator_Precedence" target="_blank" rel="noopener">运算符优先级</a></p>
 <blockquote>
-<p>z-index只对定位元素(position不是static)生效，默认为auto</p>
+<p>由于优先级不好记，搞不清楚的情况下可以使用圆括号()，它的优先级最高 </p>
 </blockquote>
-<ul>
-<li>层叠上下文元素的背景色在它的层叠上下文中层叠水平最低，例如一个创建了层叠上下文的元素和它的子元素发生重叠时，它的背景色永远在最底层</li>
-<li>在网页中，内容是非常重要的，所以行内元素的层级很高</li>
-<li>当元素定位时，z-index默认auto，所以定位元素大多数情况下会覆盖静态元素</li>
-</ul>
-<blockquote>
-<p>层叠顺序的原则：相同层叠水平的元素，文档中靠后的覆盖前面的；不同层叠水平的元素，层叠水平高的覆盖层叠水平低的</p>
-</blockquote>
-<h3 id="如何创建层叠上下文"><a href="#如何创建层叠上下文" class="headerlink" title="如何创建层叠上下文"></a>如何创建层叠上下文</h3><ul>
-<li>根元素自动创建</li>
-<li>定位元素 + z-index(非默认值)创建</li>
-<li>通过一些css3属性创建：</li>
-</ul>
-<p>z-index为数值的flex子项<br>opacity不是1<br>transform不是none<br>filter不是none<br>will-change的值为上面三者之一<br>注意will-change：tansform 会启动硬件加速</p>
-<blockquote>
-<p>当我们创建了层叠上下文时，如果它不通过z-index创建，则层叠水平等同于z-idnex：auto(0)<br>如果通过z-index创建，则层叠水平为z-index的值</p>
-</blockquote>
-<p>来看一个简单的例子：</p>
-<pre><code>.static{
-    width: 100px;
-    height: 100px;
-    background: red;
-}
-.absolute{
-    width: 100px;
-    height: 100px;
-    background: blue;
-    z-index: 0;
-    position: absolute;
-    top: 50px;
-    left: 0;
-}
+<h3 id="falsy"><a href="#falsy" class="headerlink" title="falsy"></a>falsy</h3><p>falsy 值 (虚值) 是在 Boolean 上下文中认定为 false 的值。<br>它们是：false，0，null，undefiend，’’，””，``，NaN</p>
+<h3 id="Symbol-toPrimitive"><a href="#Symbol-toPrimitive" class="headerlink" title="[Symbol.toPrimitive]"></a>[Symbol.toPrimitive]</h3><p>Symbol.toPrimitive 是一个内置的 Symbol 值，它是作为对象的函数值属性存在的，当一个对象转换为对应的原始值时，会调用此函数。</p>
+<pre><code>// 一个没有提供 Symbol.toPrimitive 属性的对象，参与运算时的输出结果
+var obj1 = {};
+console.log(+obj1);     // NaN
+console.log(`${obj1}`); // &quot;[object Object]&quot;
+console.log(obj1 + &quot;&quot;); // &quot;[object Object]&quot;
 
-&lt;div class=&quot;absolute&quot;&gt;&lt;/div&gt;
-&lt;div class=&quot;static&quot;&gt;&lt;/div&gt;</code></pre><p><img src="/medias/%E5%B1%82%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87/2.png" alt=""><br>蓝色背景的绝对定位元素触发了层叠上下文，层叠水平为0，红色背景的静态元素没有触发层叠上下文，层叠水平为块级元素，根据层叠顺序图，z-index：0的层叠水平高于块级元素，所以蓝色覆盖红色<br>让静态元素触发层叠上下文：</p>
-<pre><code>.static{will-change: teansform}</code></pre><p><img src="/medias/%E5%B1%82%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87/3.png" alt=""><br>静态元素触发层叠上下文后层叠水平为z-index:auto即z-index:0与定位元素层叠水平相同，根据层叠顺序原则，后来者居上，所以静态元素覆盖了定位元素</p>
+// 接下面声明一个对象，手动赋予了 Symbol.toPrimitive 属性，再来查看输出结果
+var obj2={
+[Symbol.toPrimitive](hint){
+if(hint === &apos;number&apos;){console.log(1)}
+else if(hint === &apos;string&apos;){console.log(2)}
+else {console.log(3)}
+    }
+}
+console.log(+obj2);     // 1      -- hint 参数值是 &quot;number&quot;
+console.log(`${obj2}`); // 2 -- hint 参数值是 &quot;string&quot;
+console.log(obj2 + &quot;&quot;); // 3  -- hint 参数值是 &quot;default&quot;
+console.log(obj2 == 1);    // 3 -- hint 参数值是 &quot;default&quot;
+alert(obj2)             // 2 -- hint 参数值是 &quot;string&quot;</code></pre><ul>
+<li>当比较两者类型相同时，数字和字符串比较是否完全相同，对象比较是否是同一个引用</li>
+<li>当比较两者类型不同时，如果都是基本类型，则转为数字，纯数字字符串转为对应的数字，有非数字字符的字符串转为NaN，</li>
+<li>如果一个是基本类型，一个是对象，则对对象使用  <a href="hint">Symbol.toPrimitive</a>如果不存在，则根据hint值来判断：如果hint为”number”或者”default”，则先调用valueOf(),结果非原始值，再调用toString();如果hint为”string”，则调用toString()</li>
+</ul>
+<h3 id="非严格相等"><a href="#非严格相等" class="headerlink" title="非严格相等"></a>非严格相等</h3><p>js中非严格相等运算符 == 是会强制进行类型转换的，而严格相等 === 则不会，我们来看个例子：</p>
+<pre><code>1 === &apos;1&apos; //false
+1 == &apos;1&apos; //true,因为当比较两者类型不同时，如果都是基本类型，则转为数字</code></pre><blockquote>
+<p>null转为数值时为0，而undefined转为数值时为NaN</p>
+</blockquote>
+<p>特殊情况：</p>
+<blockquote>
+<p>null == undefined  //true<br>undefined == null  //true<br>NaN == NaN         //false<br>null和undefined与其他任何值的结果都是false</p>
+</blockquote>
+<p>两个较为复杂的例子：</p>
+<ol>
+<li>[] == ![]<br>首先，根据运算符优先级，先执行![]，!运算符将[]转为布尔值false，这时再进行非严格相等运算时，就变成一个引用类型和一个原始值的比较,注意上文中的代码：console.log(obj2 == 1);    // 3 – hint 参数值是 “default”，此时hint取值”default”，所以先调用valueOf(),结果还是[]自身，所以在调用toString(),变为空字符串’’<br>‘’ == false,两者都为falsy，转为数字为0，返回true</li>
+<li>new Date()<br>根据原型链，我们知道Date类型的原型中重写了valueOf()方法，返回从1970年1月1日0时0分0秒（UTC，即协调世界时）到该日期的毫秒数。<br>Date类型的原型中也拥有[Symbol.toPrimitive]属性，测试一下发现：</li>
+</ol>
+<ul>
+<li>对一个Date实例进行四则运算时和&gt;,&lt;,&gt;=,&lt;=比较时，hint为”number”，调用valueOf()方法</li>
+<li>对一个Date实例进行非严格相等运算 ==，hint为”default”，调用toString()</li>
+<li>hint为”string”，调用toString()</li>
+</ul>
 
             </div>
             <hr/>
@@ -463,12 +471,12 @@ z-index只对定位元素(position">
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%B1%82%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87/">
-                                    <span class="chip bg-color">层叠上下文</span>
+                                <a href="/tags/%E7%B1%BB%E5%9E%8B/">
+                                    <span class="chip bg-color">类型</span>
                                 </a>
                             
-                                <a href="/tags/z-index/">
-                                    <span class="chip bg-color">z-index</span>
+                                <a href="/tags/Symbol-toPrimitive/">
+                                    <span class="chip bg-color">Symbol.toPrimitive</span>
                                 </a>
                             
                         </div>
@@ -509,9 +517,10 @@ z-index只对定位元素(position">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2019/09/05/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/">
                     <div class="card-image">
@@ -532,9 +541,9 @@ z-index只对定位元素(position">
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-09-05
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-09-05
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -547,6 +556,7 @@ z-index只对定位元素(position">
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -569,24 +579,27 @@ z-index只对定位元素(position">
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/08/30/BFC/">
+                <a href="/2019/09/01/%E5%B1%82%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="BFC">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="层叠上下文">
                         
-                        <span class="card-title">BFC</span>
+                        <span class="card-title">层叠上下文</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            BFC全称是Block Formatting Context，即块格式化上下文。它是CSS2.1规范定义的，关于CSS渲染定位的一个概念。在实际开发过程中我们遇到的很多难以理解的坑实际上很多都是由于BFC造成的，例如margin重叠，元素高
+                            层叠上下文是HTML元素的三维概念，这些HTML元素在一条假想的相对于面向（电脑屏幕的）视窗或者网页的用户的z轴上延伸，HTML元素依据其自身属性按照优先级顺序占用层叠上下文的空间。
+层叠顺序
+
+z-index只对定位元素(position
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-08-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-09-01
                             </span>
                         <span class="publish-author">
                             
@@ -603,12 +616,12 @@ z-index只对定位元素(position">
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/BFC/">
-                        <span class="chip bg-color">BFC</span>
+                    <a href="/tags/%E5%B1%82%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87/">
+                        <span class="chip bg-color">层叠上下文</span>
                     </a>
                     
-                    <a href="/tags/margin%E9%87%8D%E5%8F%A0/">
-                        <span class="chip bg-color">margin重叠</span>
+                    <a href="/tags/z-index/">
+                        <span class="chip bg-color">z-index</span>
                     </a>
                     
                 </div>
