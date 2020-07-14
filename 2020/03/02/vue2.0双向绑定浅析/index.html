@@ -6,8 +6,15 @@
     <meta charset="utf-8">
     <meta name="keywords" content="vue2.0双向绑定浅析, KalebBlog">
     <meta name="description" content="Vue是前端三大框架之一，它的小而精获得国内外诸多开发者的青睐。对于Vue的核心功能双向绑定的实现是初中级开发者非常关注的难点
-关键词观察者，订阅者，解析器
-">
+关键词观察者，订阅者，消息接收器
+思路
+数据驱动视图更新
+视图驱动数据更新
+
+实现过程
+1、初始化数据
+
+&amp;lt">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -387,7 +394,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-07-13
+                    2020-05-11
                 </div>
                 
 
@@ -405,8 +412,147 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>Vue是前端三大框架之一，它的小而精获得国内外诸多开发者的青睐。对于Vue的核心功能双向绑定的实现是初中级开发者非常关注的难点</p>
-<h3 id="关键词"><a href="#关键词" class="headerlink" title="关键词"></a>关键词</h3><p>观察者，订阅者，解析器</p>
+<h2 id="关键词"><a href="#关键词" class="headerlink" title="关键词"></a>关键词</h2><p>观察者，订阅者，消息接收器</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ul>
+<li>数据驱动视图更新</li>
+<li>视图驱动数据更新</li>
+</ul>
+<h2 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h2><blockquote>
+<p>1、初始化数据</p>
+</blockquote>
+<pre><code>&lt;div id=&quot;app&quot;&gt;
+  &lt;input type=&quot;text&quot; v-model=&quot;name&quot;&gt;
+  &lt;div&gt;{{name}}&lt;/div&gt;&lt;br&gt;
+  &lt;input type=&quot;text&quot; v-model=&quot;age&quot;&gt;
+  {{age}}
+&lt;/div&gt;
 
+let vm = new Vue({
+        el: &apos;#app&apos;,
+        data: {
+            name: &apos;jane&apos;,
+            age: 25
+        }
+    })</code></pre><blockquote>
+<p>2、遍历data里的每一项，通过Object.defineProperty生成一个观察者模式，通过设置getter和setter控制属性的访问和更改</p>
+</blockquote>
+<pre><code>observe(data) {
+  if (!data || typeof data !== &apos;object&apos;) {
+        return;
+    }
+    Object.keys(data).forEach((key) =&gt; {
+        this.defineReactive(data, key, data[key]);
+    });
+}
+defineReactive(data, key, val) {
+    this.observe(val); //递归遍历所有子属性
+    var dep = new Dep(); //为每一个属性新建消息接收器
+    Object.defineProperty(data, key, {
+        enumerable: true,
+        configurable: true,
+        get() {
+            if (Dep.target) {
+              console.log(&apos;添加成功&apos;)
+                dep.addSub(Dep.target); // 添加订阅者到消息接收器
+            }
+            return val;
+        },
+        set(newVal) {
+            if (val === newVal) {
+                return;
+            }
+            val = newVal;
+            console.log(&apos;现在属性值为：“&apos; + newVal.toString() + &apos;”&apos;);
+            dep.notify(); // 如果数据变化，通知订阅者
+        }
+    });
+}</code></pre><blockquote>
+<p>3、 遍历DOM树，并为每一个绑定值生成订阅者</p>
+</blockquote>
+<pre><code>childNodes(el) {
+  [...el.childNodes].forEach((node) =&gt; {
+    if (node.nodeType === 3) {
+      const text = node.textContent
+      const regexp = /\{\{\s*([^\s\{\}]+)\s*\}\}/g
+      if (regexp.test(text)) {
+        // console.log(RegExp.$1)
+        if (this._data[RegExp.$1]) {
+          node.textContent = node.textContent.replace(regexp, this._data[RegExp.$1])
+          new Watcher(this, RegExp.$1, function (value) {  // 生成订阅器并绑定更新函数
+                this.updateText(node, value);
+            });
+        }
+      }
+    }
+    if (node.nodeType === 1) {
+      this.childNodes(node)
+    }
+  })
+}</code></pre><blockquote>
+<p>4、 生成订阅者模式的同时触发一次getter把当前订阅者存在消息接收器dep中</p>
+</blockquote>
+<pre><code>class Watcher {
+  constructor(vm, exp, cb) {
+  //vm为colors实例，exp为属性名，cb为渲染函数
+  console.log(vm)
+  this.cb = cb;
+    this.vm = vm;
+    this.exp = exp;
+    this.value = this.get();  // 添加到订阅器
+  }
+  get() {
+      Dep.target = this;  // 缓存自己
+      var value = this.vm._data[this.exp] // 强制触发监听器里的get函数
+      Dep.target = null;  // 释放自己
+      return value;
+  }</code></pre><p>  }</p>
+<blockquote>
+<p>5、为绑定v-model关键词的dom元素绑定input事件，通过input事件触发绑定值的更新</p>
+</blockquote>
+<pre><code>let attr = node.attributes
+if (attr.hasOwnProperty(&apos;v-model&apos;)) {
+  let key = attr[&apos;v-model&apos;].nodeValue
+  // console.log(key)
+  if(this._data[key]) {
+    node.value = this._data[key]
+    node.addEventListener(&apos;input&apos;, (e) =&gt; {
+      this._data[key] = node.value
+    })
+  }  
+}</code></pre><blockquote>
+<p>6、触发setter的时候通知消息接收器更新并触发watcher的update更新view层</p>
+</blockquote>
+<pre><code>class Dep {
+  constructor() {
+    this.subs = [];
+  }
+  addSub(sub) {
+        this.subs.push(sub);
+  }
+  notify() {
+      this.subs.forEach((sub) =&gt; {
+          sub.update()
+      });
+  }
+}
+
+watcher中：
+update() {
+    this.run();
+}
+  run() {
+  var value = this.vm._data[this.exp];
+  var oldVal = this.value;
+  if (value !== oldVal) {
+    this.value = value;
+    this.cb.call(this.vm, value);
+  }
+}</code></pre><blockquote>
+<p>最终效果</p>
+</blockquote>
+<video  width="800" height="520" controls>
+  <source src="/medias/vue1/vue1.mp4">
+<video>
             </div>
             <hr/>
 
@@ -479,8 +625,15 @@
                     <div class="summary block-with-text">
                         
                             Vue是前端三大框架之一，它的小而精获得国内外诸多开发者的青睐。对于Vue的核心功能双向绑定的实现是初中级开发者非常关注的难点
-关键词观察者，订阅者，解析器
+关键词观察者，订阅者，消息接收器
+思路
+数据驱动视图更新
+视图驱动数据更新
 
+实现过程
+1、初始化数据
+
+&lt
                         
                     </div>
                     <div class="publish-info">
