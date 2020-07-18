@@ -1,7 +1,7 @@
 ---
 title: vue2.0双向绑定浅析
 date: 2020-3-2 14:37:07
-updated: 2020-5-12 20:11:58
+updated: 2020-5-11 20:11:58
 tags: 
 - Vue 
 categories: Javascript
