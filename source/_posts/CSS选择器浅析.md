@@ -8,8 +8,8 @@ tags:
 - 选择器 
 - 权重
 categories: CSS
-cover: true
-coverImg: '../../img/11.jpg'
+# cover: true
+# coverImg: '../../img/11.jpg'
 ---
 在CSS中，选择器是一种模式，用于选择需要添加样式的元素。在实际开发过程中，合理运用选择器会让开发更快捷，代码更简洁，甚至可以结合HTML去实现一些逆向选择的技巧。本文对CSS选择器中一些常用例子做了简要说明，并对一些理论做了解析
 
