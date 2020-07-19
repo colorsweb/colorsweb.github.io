@@ -9,7 +9,7 @@ tags:
 - margin重叠
 categories: CSS
 cover: true
-coverImg: '../../img/21.jpg'
+# coverImg: '../../img/21.jpg'
 ---
 BFC全称是Block Formatting Context，即块格式化上下文。它是CSS2.1规范定义的，关于CSS渲染定位的一个概念。在实际开发过程中我们遇到的很多难以理解的坑实际上很多都是由于BFC造成的，例如margin重叠，元素高度塌陷等等，如果正确理清了BFC是怎么影响元素布局的，就能在开发中有更清晰的思路
 
